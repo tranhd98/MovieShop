@@ -1,0 +1,15 @@
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/bin/Debug/net6.0/Infrastructure.deps.json
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/bin/Debug/net6.0/Infrastructure.dll
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/bin/Debug/net6.0/Infrastructure.pdb
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/bin/Debug/net6.0/ApplicationCore.dll
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/bin/Debug/net6.0/ApplicationCore.pdb
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.AssemblyReference.cache
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/obj/Debug/net6.0/Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/obj/Debug/net6.0/Infrastructure.AssemblyInfoInputs.cache
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/obj/Debug/net6.0/Infrastructure.AssemblyInfo.cs
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.CoreCompileInputs.cache
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.CopyComplete
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/obj/Debug/net6.0/Infrastructure.dll
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/obj/Debug/net6.0/refint/Infrastructure.dll
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/obj/Debug/net6.0/Infrastructure.pdb
+/Users/hungtran/RiderProjects/MovieShop/Infrastructure/obj/Debug/net6.0/ref/Infrastructure.dll
