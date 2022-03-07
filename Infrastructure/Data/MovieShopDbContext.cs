@@ -1,3 +1,5 @@
+using System.Collections.Immutable;
+using System.Net.NetworkInformation;
 using ApplicationCore.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -16,6 +18,13 @@ public class MovieShopDbContext: DbContext
     public DbSet<Trailer> Trailers { get; set; }
     public DbSet<MovieCast> MovieCast { get; set; }
     public DbSet<Cast> Casts { get; set; }
+    
+    public DbSet<User> Users { get; set; }
+    public DbSet<Review> Reviews { get; set; }
+    public DbSet<Favorite> Favorites { get; set; }
+    public DbSet<Purchase> Purchases { get; set; }
+    public DbSet<Role> Roles { get; set; }
+    public DbSet<UserRole> UserRoles { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Movie>(ConfigureMovie);
@@ -23,6 +32,66 @@ public class MovieShopDbContext: DbContext
         modelBuilder.Entity<MovieGenre>(ConfigureMovieGenre);
         modelBuilder.Entity<MovieCast>(ConfigureMovieCast);
         modelBuilder.Entity<Cast>(ConfigureCast);
+        
+        
+        modelBuilder.Entity<User>(ConfigureUser);
+        modelBuilder.Entity<Review>(ConfigureReview);
+        modelBuilder.Entity<Favorite>(ConfigureFavorite);
+        modelBuilder.Entity<Purchase>(ConfigurePurchase);
+        modelBuilder.Entity<Role>(ConfigureRole);
+        modelBuilder.Entity<UserRole>(ConfigureUserRole);
+    }
+
+    private void ConfigureUserRole(EntityTypeBuilder<UserRole> builder)
+    {
+        builder.ToTable("UserRole");
+        builder.HasKey(ur => new {ur.UserId, ur.RoleId});
+        builder.HasOne(ur => ur.User).WithMany(u => u.Roles).HasForeignKey(ur => ur.UserId);
+        builder.HasOne(ur => ur.Role).WithMany(ro => ro.Users).HasForeignKey(ur => ur.RoleId);
+    }
+
+    private void ConfigureRole(EntityTypeBuilder<Role> builder)
+    {
+        builder.ToTable("Role");
+        builder.HasKey(ro => ro.Id);
+        builder.Property(ro => ro.Name).HasMaxLength(20);
+    }
+
+    private void ConfigurePurchase(EntityTypeBuilder<Purchase> builder)
+    {
+        builder.ToTable("Purchase");
+        builder.HasKey(p => p.Id);
+        builder.Property(p => p.TotalPrice).HasColumnType("decimal(18, 2)").HasDefaultValue(9.9m);
+        builder.Property(p => p.PurchaseDateTime).HasDefaultValueSql("getdate()");
+    }
+
+    private void ConfigureFavorite(EntityTypeBuilder<Favorite> builder)
+    {
+        builder.ToTable("Favorite");
+        builder.HasKey(f => f.Id);
+    }
+    
+
+    private void ConfigureReview(EntityTypeBuilder<Review> builder)
+    {
+        builder.ToTable("Review");
+        builder.HasKey(r => new {r.MovieId, r.UserId});
+        builder.HasOne(r => r.Movie).WithMany(m => m.Reviews).HasForeignKey(r => r.MovieId);
+        builder.HasOne(r => r.User).WithMany(u => u.Reviews).HasForeignKey(r => r.UserId);
+        builder.Property(r => r.Rating).HasColumnType("decimal(3, 2)").HasDefaultValue(9.9m);
+        builder.Property(r => r.ReviewText).HasMaxLength(2084);
+    }
+
+    private void ConfigureUser(EntityTypeBuilder<User> builder)
+    {
+        builder.ToTable("User");
+        builder.HasKey(u => u.Id);
+        builder.Property(u => u.FirstName).HasMaxLength(128);
+        builder.Property(u => u.LastName).HasMaxLength(128);
+        builder.Property(u => u.Email).HasMaxLength(256);
+        builder.Property(u => u.HashedPassword).HasMaxLength(1024);
+        builder.Property(u => u.Salt).HasMaxLength(1024);
+        builder.Property(u => u.PhoneNumber).HasMaxLength(16);
     }
 
     private void ConfigureCast(EntityTypeBuilder<Cast> builder)

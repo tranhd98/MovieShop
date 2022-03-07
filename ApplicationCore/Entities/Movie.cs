@@ -30,4 +30,9 @@ public class Movie
     public ICollection<MovieGenre> Genres { get; set; }
     public ICollection<MovieCast> MovieCasts { get; set; }
     
+    public ICollection<Favorite> Favorites { get; set; }
+    public ICollection<Review> Reviews { get; set; }
+    public ICollection<Purchase> Purchases { get; set; }
+    
+
 }

@@ -1,0 +1,26 @@
+@model ApplicationCore.Models.CastDetailsModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>@Model.Character</h2>
+<p>@Model.Id</p>
+<p>@Model.Name</p>
+<p>@Model.ProfilePath</p>
+<p>@Model.TmdbUrl</p>
+@{
+    foreach (var VARIABLE in Model.Movies)
+    {
+        <div>
+            @VARIABLE.Id
+        </div>
+        <div>
+            @VARIABLE.Overview
+        </div>
+        <div>@VARIABLE.Title</div>
+        <div>@VARIABLE.Revenue</div>
+        
+    }
+}

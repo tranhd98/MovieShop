@@ -107,18 +107,23 @@
         @{
             foreach (var cast in Model.Casts)
             {
-                <hr/>
-        <div class="row">
-            <div class="col-2">
-                <img class="img-fluid" src=@cast.ProfilePath alt=@cast.Name style="border-radius: 70%; height: 7rem">
-            </div>
-            <div class="col-5">
-                <p>@cast.Name</p>
-            </div>
-            <div class="col-5">
-                <p>@cast.Character</p>
-            </div>
-        </div>
+                <a asp-action="Details" asp-controller="Cast" asp-route-id=@cast.Id>
+                    <hr/>
+                    <div class="row">
+                                        
+                        <div class="col-2">
+                            <img class="img-fluid" src=@cast.ProfilePath alt=@cast.Name style="border-radius: 70%; height: 7rem" asp>
+                        </div>
+                        <div class="col-5">
+                            <p>@cast.Name</p>
+                        </div>
+                        <div class="col-5">
+                            <p>@cast.Character</p>
+                        </div>
+                    </div>
+                    
+                </a>
+                
             }
         }
     </div>    
