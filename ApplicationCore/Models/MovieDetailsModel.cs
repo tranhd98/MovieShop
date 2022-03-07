@@ -1,6 +1,6 @@
-namespace ApplicationCore.Entities;
+namespace ApplicationCore.Models;
 
-public class Movie
+public class MovieDetailsModel
 {
     public int Id { get; set; }
     public string? Title { get; set; }
@@ -16,18 +16,13 @@ public class Movie
     public DateTime? ReleaseDate { get; set; }
     public int? RunTime { get; set; }
     public decimal? Price { get; set; }
-    public DateTime? CreatedDate { get; set; }
-    public DateTime? UpdatedDate { get; set; }
-    public string? UpdatedBy { get; set; }
-    public string? CreatedBy { get; set; }
-
-    
     public decimal? Rating { get; set; }
     
     
-    // navigation Property is gonner be collection of trailers
-    public ICollection<Trailer> Trailers { get; set; }
-    public ICollection<MovieGenre> Genres { get; set; }
-    public ICollection<MovieCast> MovieCasts { get; set; }
-    
+    // list of genres
+    public List<GenreModel> Genres { get; set; }
+    //list of trailers
+    public List<TrailerModel> Trailers { get; set; }
+    //list of Cast
+    public List<CastModel> Casts { get; set; }
 }

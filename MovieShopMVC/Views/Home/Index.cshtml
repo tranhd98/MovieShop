@@ -5,9 +5,18 @@
     
 }
 
-@foreach (var movie in Model)
-{
-    <a asp-controller="Movies" asp-action="Details" asp-route-id = "@movie.Id">
-        <img src="@movie.PosterURL" alt="@movie.Title"/>
-    </a>
-}
+
+<div class="rounded">
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var movie in Model)
+            {
+                
+                <div class="col-xl-2 col-sm-4 col-lg-3 col-6">
+                    <partial name="_MovieCard" model="movie"/>
+                    
+                </div>
+            }
+        </div>
+    </div>
+</div>
