@@ -14,9 +14,9 @@ public class MoviesController: Controller
     }
 
     [HttpGet]
-    public IActionResult Details(int id)
+    public async Task<IActionResult> Details(int id)
     {
-        var movieDetails = _MovieService.GetMovieDetails(id);
+        var movieDetails = await _MovieService.GetMovieDetails(id);
         return View(movieDetails);
     }
 }

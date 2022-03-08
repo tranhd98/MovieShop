@@ -12,11 +12,11 @@ public class CastRepository: EfRepository<Cast>, ICastRepository
         
     }
 
-    public override Cast GetById(int id)
+    public async override Task<Cast> GetById(int id)
     {
-        var cast = _dbContext.Casts
+        var cast = await _dbContext.Casts
             .Include(c => c.MovieCasts).ThenInclude(mc => mc.Movie)
-            .FirstOrDefault(c => c.Id == id);
+            .FirstOrDefaultAsync(c => c.Id == id);
         return cast;
     }
 }

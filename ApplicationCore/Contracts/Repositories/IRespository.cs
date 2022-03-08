@@ -2,9 +2,9 @@ namespace ApplicationCore.Contracts.Repositories;
 
 public interface IRespository<T> where T: class
 {
-    T GetById(int id);
-    IEnumerable<T> GetAll();
-    T Add(T entity);
-    T Delete(T entity);
-    T Update(T entity);
+    Task<T> GetById(int id);
+    Task<IEnumerable<T>> GetAll();
+    Task<T> Add(T entity);
+    Task<T> Delete(T entity);
+    Task<T> Update(T entity);
 }
