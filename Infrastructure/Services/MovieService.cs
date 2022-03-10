@@ -80,4 +80,24 @@ public class MovieService: IMovieService
 
         return movieDetails;
     }
+
+    public async Task<PagedResultSet<MovieCardModel>> GetMoviesByGenres(int genreId, int pageSize = 30, int pageNumber = 1)
+    {
+        var pagedMovies = await _movieRepository.GetMoviesByGenres(genreId, pageSize, pageNumber);
+
+        var moviesCard = new List<MovieCardModel>();
+
+        foreach (var movie in pagedMovies.Data)
+        {
+            moviesCard.Add(new MovieCardModel
+            {
+                Id = movie.Id,
+                PosterURL = movie.PosterUrl,
+                Title = movie.Title
+            });
+        }
+
+        var newPagedMovies = new PagedResultSet<MovieCardModel>(moviesCard, pageNumber, pageSize, pagedMovies.Count);
+        return newPagedMovies;
+    }
 }

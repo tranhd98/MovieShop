@@ -25,6 +25,8 @@ public class MovieShopDbContext: DbContext
     public DbSet<Purchase> Purchases { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<UserRole> UserRoles { get; set; }
+    public DbSet<MovieGenre> MovieGenres { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Movie>(ConfigureMovie);

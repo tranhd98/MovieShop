@@ -1,0 +1,83 @@
+@model ApplicationCore.Models.PagedResultSet<ApplicationCore.Models.MovieCardModel>
+@{
+}
+@{
+    <div class="rounded">
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (var movie in Model.Data)
+                {
+                
+                    <div class="col-xl-2 col-sm-4 col-lg-3 col-6">
+                        <partial name="_MovieCard" model="movie"/>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    
+}
+@{
+    string togglePrevious = "page-item ";
+    string toggleNext = "page-item ";
+    if (!Model.HasPreviousPage)
+    {
+        togglePrevious += "disabled";
+    }
+    if (!Model.HasNextPage)
+    {
+        toggleNext += "disabled";
+    }
+    
+    string valueNextPage = (Model.PageIndex + 1).ToString();
+    string valueNextNextPage = (Model.PageIndex + 2).ToString();
+    string currentPage = "?pageNumber=" + (Model.PageIndex).ToString();
+    string nextPage = "?pageNumber=" + valueNextPage;
+    string nextNextPage = "?pageNumber=" + valueNextNextPage;
+    string leftTag = "?pageNumber=" + (Model.PageIndex - 1).ToString();
+    string EndTag = "?pageNumber=" + (Model.TotalPages).ToString();
+   
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="@togglePrevious"><a class="page-link" href="?pageNumber=1">&laquo;</a></li>
+            <li class="@togglePrevious"><a class="page-link" href="@leftTag">&lt;</a></li>
+            @{
+                if (Model.PageIndex < Model.TotalPages - 3)
+                {
+                    <li class="page-item active"><a class="page-link" href="@currentPage">@Model.PageIndex</a></li>
+                    <li class="page-item"><a class="page-link" href="@nextPage">@valueNextPage</a></li>
+                    <li class="page-item"><a class="page-link" href="@nextNextPage">@valueNextNextPage</a></li>
+                    <li class="page-item disabled"><a class="page-link" href="">...</a></li>
+                    <li class="page-item"><a class="page-link" href="@EndTag">@Model.TotalPages</a></li>
+                }
+                else if (Model.PageIndex == Model.TotalPages - 3)
+                {
+                    <li class="page-item active"><a class="page-link" href="@currentPage">@Model.PageIndex</a></li>
+                    <li class="page-item"><a class="page-link" href="@nextPage">@valueNextPage</a></li>
+                    <li class="page-item"><a class="page-link" href="@nextNextPage">@valueNextNextPage</a></li>
+                    <li class="page-item"><a class="page-link" href="@EndTag">@Model.TotalPages</a></li>
+                }
+                else if(Model.PageIndex == Model.TotalPages - 2)
+                {
+                    <li class="page-item active"><a class="page-link" href="@currentPage">@Model.PageIndex</a></li>
+                    <li class="page-item"><a class="page-link" href="@nextPage">@valueNextPage</a></li>
+                    <li class="page-item"><a class="page-link" href="@EndTag">@Model.TotalPages</a></li>
+                }
+                else if(Model.PageIndex == Model.TotalPages - 1)
+                {
+                    <li class="page-item active"><a class="page-link" href="@currentPage">@Model.PageIndex</a></li>
+                    <li class="page-item"><a class="page-link" href="@EndTag">@Model.TotalPages</a></li>
+                }
+                else
+                {
+                    <li class="page-item"><a class="page-link" href="@EndTag">@Model.TotalPages</a></li>
+                }
+                
+            }
+            
+            <li class="@toggleNext"><a class="page-link" href="@nextPage">&gt;</a></li>
+            <li class="@toggleNext"><a class="page-link" href="@EndTag">&raquo;</a></li>
+        </ul>
+    </nav>    
+}
