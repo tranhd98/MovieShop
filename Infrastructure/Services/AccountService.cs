@@ -16,20 +16,28 @@ public class AccountService : IAccountService
         _userRepository = userRepository;
     }
 
-    public async Task<bool> ValidateUser(UserLoginRequestModel model)
+    public async Task<LoginResponse> ValidateUser(UserLoginRequestModel model)
     {
         
         var user = await _userRepository.GetUserByEmails(model.Email);
         if (user == null)
         {
-            return false;
+            return null;
         }
         if (hashed(model.Password, user.Salt) != user.HashedPassword)
         {
-            return false;
+            return null;
         }
 
-        return true;
+        var userLoginResponse = new LoginResponse
+        {
+            Email = user.Email,
+            Id = user.Id,
+            DateOfBirth = user.DateOfBirth.GetValueOrDefault(),
+            FirstName = user.FirstName,
+            LastName = user.LastName
+        };
+        return userLoginResponse;
     }
 
     public async Task<int> CreateUser(UserRegisterRequestModel model)

@@ -9,5 +9,4 @@ public interface IMovieRepository: IRespository<Movie>
 
     Task<PagedResultSet<Movie>> GetMoviesByGenres(int genreId, int pageSize = 30, int pageNumber = 1);
     
-
 }
