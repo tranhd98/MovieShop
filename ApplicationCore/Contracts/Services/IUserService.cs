@@ -22,9 +22,12 @@ public interface IUserService
     Task<bool> FavoriteExists(int id, int movieId);
 
     Task<ReviewModel> AddMovieReview(ReviewRequestModel reviewRequest);
-    Task<string> DeleteMovieReview(int userId, int movieId);
+    Task<string> DeleteMovieReview(int movieId, int userId);
 
     Task<List<ReviewModel>> GetAllReviewsByUser(int id);
 
     Task<ReviewModel> UpdateMovieReview(ReviewRequestModel reviewRequest);
+
+    Task<bool> isReviewExistByUser(int userId, int movieId);
+    Task<ReviewModel> GetReviewsByUserAndMovie(int movieId, int userId);
 }

@@ -32,7 +32,78 @@
         </div>
         <div class="col-2">
             <div class="d-grid gap-2" style="margin-top: 20%">
-                <button class="btn btn-dark" style="background-color: transparent; text-align: center;color: white; border-color:  white">Review</button>
+                @{
+                    if ((bool) ViewData["isReviewed"])
+                    {
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalToggleLabel">All Reviews</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <partial name="Reviews" model="Model.Reviews"/>
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                        <a class="btn btn-primary" role="button" asp-controller="User" asp-action="EditReviews" asp-route-MovieId="@Model.Id">
+                                            Edit my review
+                                        </a>
+                                        @using (Html.BeginForm("DeleteReview", "User", FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            @Html.HiddenFor(model => model.Id)
+                                            <button class="btn btn-dark" type="submit" class="btn btn-primary">Delete my review</button>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn btn-dark" data-bs-toggle="modal" href="#exampleModalToggle" role="button" style="background-color: transparent; text-align: center;color: white; border-color:  white">REVIEW</a>
+                    }
+                    else
+                    {
+                        <button class="btn btn-dark" style="background-color: transparent; text-align: center;color: white; border-color:  white" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                            Review
+                        </button>
+                        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to review @Model.Title movie</p>
+                                    </div>
+                                    <form asp-controller="User" asp-action="ReviewMovie" method="post">
+                                        <div class="form-group">
+                                            <input name="MovieId" id="MovieId" class="form-control" readonly="readonly" value="@Model.Id" hidden="hidden"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Rating">Rating: </label>
+                                            <input type="number" name="Rating" id="Rating" class="form-control" value="" required="required"/>
+
+                                        </div>
+                                        <div class="form-group">
+                                             <label for="ReviewText">ReviewText: </label>
+                                            <input type="text" name="ReviewText" id="ReviewText" class="form-control" value="" required="required"/>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <input class="btn btn-dark" type="submit" value="Review"/>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                
                 @{
                     if ((bool) ViewData["isPurchased"])
                     {
@@ -61,49 +132,52 @@
 
                                         <div class="form-group">
                                             <input name="TotalPrice" id="TotalPrice" class="form-control" readonly="readonly" value="@Model.Price" hidden="hidden"/>
-                                
+
                                         </div>
                                         <div class="form-group">
                                             <input name="PurchaseDateTime" id="PurchaseDateTime" class="form-control" readonly="readonly" value="@DateTime.Today.ToString()" hidden="hidden"/>
                                         </div>
-                            
+                                        <div class="form-group">
+                                            <input name="PurchaseNumber" id="PurchaseNumber" class="form-control" readonly="readonly" value="@Guid.NewGuid()" hidden="hidden"/>
+                                        </div>
+
 
                                         <div class="form-group">
-                                            <input class = "btn btn-dark" type="submit" value="Confirm" class="btn btn-primary"/>
+                                            <input class="btn btn-dark" type="submit" value="Confirm"/>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        
+
                     }
                 }
-                
+
                 @{
-                                if (!(bool) ViewData["isFavorited"])
-                                {
-                                    <form asp-controller="User" asp-action="FavoriteMovie" method="post">
-                                        <div class="form-group">
-                                            <input name="movieId" id="movieId" class="form-control" readonly="readonly" value="@Model.Id" hidden="hidden"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <button class = "btn btn-dark" type="submit" class="btn btn-primary"><i class="fa fa-heart" style="font-size:48px"></i></button>
-                                        </div>
-                                    </form>
-                                }
-                                else
-                                {
-                                    @using (Html.BeginForm("Delete", "User", FormMethod.Post))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        @Html.HiddenFor(model => model.Id)
+                    if (!(bool) ViewData["isFavorited"])
+                    {
+                        <form asp-controller="User" asp-action="FavoriteMovie" method="post">
+                            <div class="form-group">
+                                <input name="movieId" id="movieId" class="form-control" readonly="readonly" value="@Model.Id" hidden="hidden"/>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-dark" type="submit" class="btn btn-primary"><i class="fa fa-heart" style="font-size:48px"></i></button>
+                            </div>
+                        </form>
+                    }
+                    else
+                    {
+                        @using (Html.BeginForm("Delete", "User", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(model => model.Id)
 
-                                        <button class="btn btn-dark" type="submit" class="btn btn-primary"><i class="fa fa-heart" style="font-size:48px;color:red"></i></button>
-                                    }
+                            <button class="btn btn-dark" type="submit" class="btn btn-primary"><i class="fa fa-heart" style="font-size:48px;color:red"></i></button>
+                        }
 
-                                }
+                    }
                 }
-                
+
             </div>
         </div>
     </div>

@@ -25,4 +25,6 @@ public class MovieDetailsModel
     public List<TrailerModel> Trailers { get; set; }
     //list of Cast
     public List<CastModel> Casts { get; set; }
+    
+    public List<ReviewModel> Reviews { get; set; }
 }

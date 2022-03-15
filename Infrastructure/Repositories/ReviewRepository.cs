@@ -14,7 +14,7 @@ public class ReviewRepository: EfRepository<Review>, IReviewRepository
 
     public async Task<Review> GetReviewByUser(int movieId, int userId)
     {
-        var review = await _dbContext.Reviews.Include(r => r.Movie)
+        var review = await _dbContext.Reviews
             .FirstOrDefaultAsync(r => r.MovieId == movieId && r.UserId == userId);
         return review;
     }
@@ -22,7 +22,7 @@ public class ReviewRepository: EfRepository<Review>, IReviewRepository
     public async Task<IEnumerable<Review>> GetAllReviewsByUser(int id)
     {
         var reviews = await _dbContext.Reviews.Include(r => r.Movie)
-            .Where(r => r.UserId == id).ToListAsync();
+            .Where(r => r.MovieId == id).ToListAsync();
         return reviews;
     }
 }

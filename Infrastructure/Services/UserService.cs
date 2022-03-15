@@ -186,8 +186,6 @@ public class UserService : IUserService
         });
         var reviewModel = new ReviewModel
         {
-            Title = createdReview.Movie.Title,
-            PosterURL = createdReview.Movie.PosterUrl,
             MovieId = createdReview.MovieId,
             Rating = createdReview.Rating,
             ReviewText = createdReview.ReviewText,
@@ -196,7 +194,7 @@ public class UserService : IUserService
         return reviewModel;
     }
 
-    public async Task<string> DeleteMovieReview(int userId, int movieId)
+    public async Task<string> DeleteMovieReview(int movieId, int userId)
     {
         var review = await _reviewRepository.GetReviewByUser(movieId, userId);
         if (review == null)
@@ -217,11 +215,9 @@ public class UserService : IUserService
             reviewsModel.Add(new ReviewModel
             {
                 MovieId = review.MovieId,
-                PosterURL = review.Movie.PosterUrl,
                 UserId = review.UserId,
                 Rating = review.Rating,
                 ReviewText = review.ReviewText,
-                Title = review.Movie.Title
             });
         }
 
@@ -245,12 +241,32 @@ public class UserService : IUserService
         });
         return new ReviewModel
         {
-            MovieId = updatedReview.MovieId,
-            Title = updatedReview.Movie.Title,
-            PosterURL = updatedReview.Movie.PosterUrl,
             Rating = updatedReview.Rating,
             ReviewText = updatedReview.ReviewText,
             UserId = updatedReview.UserId,
+        };
+    }
+
+    public async Task<bool> isReviewExistByUser(int userId, int movieId)
+    {
+        var review = await _reviewRepository.GetReviewByUser(movieId, userId);
+        if (review == null)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public async Task<ReviewModel> GetReviewsByUserAndMovie(int movieId, int userId)
+    {
+        var review = await _reviewRepository.GetReviewByUser(movieId, userId);
+        return new ReviewModel
+        {
+            MovieId = review.MovieId,
+            UserId = review.UserId,
+            Rating = review.Rating,
+            ReviewText = review.ReviewText,
         };
     }
 }

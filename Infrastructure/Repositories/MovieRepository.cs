@@ -46,6 +46,7 @@ public class MovieRepository: EfRepository<Movie>, IMovieRepository
             .Include(m => m.Genres).ThenInclude(m => m.Genre)
             .Include(m => m.Trailers)
             .Include(m => m.MovieCasts).ThenInclude(m => m.Cast)
+            .Include(m=> m.Reviews)
             .FirstOrDefaultAsync(m => m.Id == id);
         return movieDetails;
     }

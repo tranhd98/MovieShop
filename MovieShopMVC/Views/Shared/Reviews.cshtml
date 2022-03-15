@@ -1,0 +1,12 @@
+@model List<ApplicationCore.Models.ReviewModel>
+
+@{
+    foreach (var review in Model)
+    {
+        <div>
+            <h3>User @review.UserId</h3>
+            <p>Rating: @review.Rating</p>
+            <p>Review: @review.ReviewText</p>
+        </div>
+    }
+}

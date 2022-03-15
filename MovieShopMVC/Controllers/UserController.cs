@@ -36,11 +36,11 @@ public class UserController: Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> Reviews()
+    public async Task<IActionResult> Reviews(int movieId)
     {
         var userId = _currentUser.userId;
-        var reviews = await _userService.GetAllReviewsByUser(userId);
-        return View(reviews);
+        var reviews = await _userService.GetAllReviewsByUser(movieId);
+        return View("Reviews");
     }
 
     [HttpPost]
@@ -77,9 +77,37 @@ public class UserController: Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> ReviewMovie()
+    public async Task<IActionResult> ReviewMovie(ReviewRequestModel model)
     {
-        return View();
+        var userId = _currentUser.userId;
+        model.UserId = userId;
+        var ReviewMovie = await _userService.AddMovieReview(model);
+        return Redirect($"~/Movies/Details/{ReviewMovie.MovieId}");
+    }
+
+    [HttpPost, ActionName("DeleteReview")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteReviewByUser(int id)
+    {
+        var userId = _currentUser.userId;
+        var remove = await _userService.DeleteMovieReview(id, userId);
+        return Redirect($"~/Movies/Details/{id}");
+    }
+    [HttpGet]
+    public async Task<IActionResult> EditReviews(int MovieId)
+    {
+        var userId = _currentUser.userId;
+        var review = await _userService.GetReviewsByUserAndMovie(MovieId, userId);
+        return View(review);
     }
     
+    
+    [HttpPost]
+    public async Task<IActionResult> EditReview(ReviewRequestModel model)
+    {
+        var userId = _currentUser.userId;
+        model.UserId = userId;
+        var edit = await _userService.UpdateMovieReview(model);
+        return Redirect($"~/Movies/Details/{model.MovieId}");
+    }
 }

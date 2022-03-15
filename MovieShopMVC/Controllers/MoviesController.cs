@@ -24,6 +24,7 @@ public class MoviesController: Controller
     {
         ViewData["isPurchased"] = false;
         ViewData["isFavorited"] = false;
+        ViewData["isReviewed"] = false;
         if (_currentUser.IsAuthenticated)
         {
             var currentUser = _currentUser.userId;
@@ -37,6 +38,12 @@ public class MoviesController: Controller
             if (isFavorited)
             {
                 ViewData["isFavorited"] = true;
+            }
+
+            var isReviewed = await _userService.isReviewExistByUser(currentUser, id);
+            if (isReviewed)
+            {
+                ViewData["isReviewed"] = true;
             }
         }
         var movieDetails = await _MovieService.GetMovieDetails(id);
