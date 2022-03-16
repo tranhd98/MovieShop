@@ -26,8 +26,13 @@ public class AccountController: Controller
     [HttpPost]
     public async Task<IActionResult> Register(UserRegisterRequestModel model)
     {
-        var user = await _accountService.CreateUser(model);
-        return RedirectToAction("Login");
+        if (ModelState.IsValid)
+        {
+            var user = await _accountService.CreateUser(model);
+            return RedirectToAction("Login");
+        }
+
+        return View();
     }
 
     [HttpGet]
@@ -39,6 +44,7 @@ public class AccountController: Controller
     [HttpPost]
     public async Task<IActionResult> Login(UserLoginRequestModel model)
     {
+        if (!ModelState.IsValid) return View();
         var user = await _accountService.ValidateUser(model);
         if (user != null)
         {

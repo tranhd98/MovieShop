@@ -232,15 +232,14 @@ public class UserService : IUserService
             throw new Exception("not reviewed yet");
         }
 
-        var updatedReview = await _reviewRepository.Update(new Review
-        {
-            UserId = reviewRequest.UserId,
-            MovieId = reviewRequest.MovieId,
-            Rating = reviewRequest.Rating,
-            ReviewText = reviewRequest.ReviewText
-        });
+        review.ReviewText = reviewRequest.ReviewText;
+        review.Rating = reviewRequest.Rating;
+        var updatedReview = await _reviewRepository.Update(
+            review
+        );
         return new ReviewModel
         {
+            MovieId = updatedReview.MovieId,
             Rating = updatedReview.Rating,
             ReviewText = updatedReview.ReviewText,
             UserId = updatedReview.UserId,

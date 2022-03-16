@@ -1,5 +1,6 @@
 using ApplicationCore.Contracts.Repositories;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
 
@@ -39,7 +40,8 @@ public class EfRepository<T> : IRespository<T> where T: class
 
     public async Task<T> Update(T entity)
     {
-        _dbContext.Set<T>().Update(entity);
+
+        _dbContext.Entry(entity).State = EntityState.Modified;
         await _dbContext.SaveChangesAsync();
         return entity;
     }

@@ -2,6 +2,7 @@ using ApplicationCore.Contracts.Services;
 using ApplicationCore.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.Language;
 using MovieShopMVC.Services;
 
 namespace MovieShopMVC.Controllers;
@@ -79,10 +80,12 @@ public class UserController: Controller
     [HttpPost]
     public async Task<IActionResult> ReviewMovie(ReviewRequestModel model)
     {
+        
         var userId = _currentUser.userId;
         model.UserId = userId;
         var ReviewMovie = await _userService.AddMovieReview(model);
         return Redirect($"~/Movies/Details/{ReviewMovie.MovieId}");
+        
     }
 
     [HttpPost, ActionName("DeleteReview")]
@@ -105,9 +108,14 @@ public class UserController: Controller
     [HttpPost]
     public async Task<IActionResult> EditReview(ReviewRequestModel model)
     {
-        var userId = _currentUser.userId;
-        model.UserId = userId;
-        var edit = await _userService.UpdateMovieReview(model);
-        return Redirect($"~/Movies/Details/{model.MovieId}");
+        if (ModelState.IsValid)
+        {
+            var userId = _currentUser.userId;
+            model.UserId = userId;
+            var edit = await _userService.UpdateMovieReview(model);
+            return Redirect($"~/Movies/Details/{model.MovieId}");
+        }
+
+        return Redirect($"~/User/EditReviews?MovieId={model.MovieId}");
     }
 }

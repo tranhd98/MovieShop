@@ -1,9 +1,6 @@
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @model ApplicationCore.Models.ReviewModel
 
-@{
-    ViewData["Title"] = "EditReview";
-}
 
 <h1>EditReview</h1>
 
@@ -20,12 +17,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Rating" class="control-label"></label>
-                <input asp-for="Rating" class="form-control" value="@Model.Rating"/>
+                <input asp-for="Rating" class="form-control" value="@Model.Rating" min="0.01" max="9.9" required="required"/>
                 <span asp-validation-for="Rating" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ReviewText" class="control-label"></label>
-                <input asp-for="ReviewText" class="form-control" value="@Model.ReviewText"/>
+                <input asp-for="ReviewText" class="form-control" value="@Model.ReviewText" required="required"/>
                 <span asp-validation-for="ReviewText" class="text-danger"></span>
             </div>
             <div class="form-group">
