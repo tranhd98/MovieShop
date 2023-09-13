@@ -5,80 +5,81 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MovieShopMVC
 build_property.RootNamespace = MovieShopMVC
-build_property.ProjectDir = /Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/
+build_property.ProjectDir = C:\Users\huy\source\repos\tranhd98\MovieShop\MovieShopMVC\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/hungtran/RiderProjects/MovieShop/MovieShopMVC
+build_property.MSBuildProjectDirectory = C:\Users\huy\source\repos\tranhd98\MovieShop\MovieShopMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Cast/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FzdC9EZXRhaWxzLmNzaHRtbA==
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Cast/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FzdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Movies/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL0RldGFpbHMuY3NodG1s
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Movies/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Movies/PagedNumbers.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL1BhZ2VkTnVtYmVycy5jc2h0bWw=
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Movies/PagedNumbers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXFBhZ2VkTnVtYmVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Shared/Reviews.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL1Jldmlld3MuY3NodG1s
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Shared/Reviews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJldmlld3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Shared/_MovieCard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Nb3ZpZUNhcmQuY3NodG1s
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Shared/_MovieCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Nb3ZpZUNhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/User/EditReviews.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9FZGl0UmV2aWV3cy5jc2h0bWw=
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/User/EditReviews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0UmV2aWV3cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/User/Favorites.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9GYXZvcml0ZXMuY3NodG1s
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/User/Favorites.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxGYXZvcml0ZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/User/Purchases.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9QdXJjaGFzZXMuY3NodG1s
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/User/Purchases.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQdXJjaGFzZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hungtran/RiderProjects/MovieShop/MovieShopMVC/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-2cccbyxv7p
+[C:/Users/huy/source/repos/tranhd98/MovieShop/MovieShopMVC/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-29xxaf60eq

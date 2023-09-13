@@ -10,3 +10,15 @@
 /Users/hungtran/RiderProjects/MovieShop/ApplicationCore/obj/Debug/net6.0/refint/ApplicationCore.dll
 /Users/hungtran/RiderProjects/MovieShop/ApplicationCore/obj/Debug/net6.0/ApplicationCore.pdb
 /Users/hungtran/RiderProjects/MovieShop/ApplicationCore/obj/Debug/net6.0/ref/ApplicationCore.dll
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\bin\Debug\net6.0\ApplicationCore.deps.json
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\bin\Debug\net6.0\ApplicationCore.dll
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\bin\Debug\net6.0\ApplicationCore.pdb
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\obj\Debug\net6.0\ApplicationCore.csproj.AssemblyReference.cache
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\obj\Debug\net6.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\obj\Debug\net6.0\ApplicationCore.AssemblyInfoInputs.cache
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\obj\Debug\net6.0\ApplicationCore.AssemblyInfo.cs
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\obj\Debug\net6.0\ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\obj\Debug\net6.0\ApplicationCore.dll
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\obj\Debug\net6.0\refint\ApplicationCore.dll
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\obj\Debug\net6.0\ApplicationCore.pdb
+C:\Users\huy\source\repos\tranhd98\MovieShop\ApplicationCore\obj\Debug\net6.0\ref\ApplicationCore.dll
